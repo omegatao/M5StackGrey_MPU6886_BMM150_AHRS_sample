@@ -109,6 +109,7 @@ void BMM150class::setup()
 void BMM150class::bmm150_calibrate(uint32_t calibrate_time)
 {
     uint32_t calibrate_timeout = 0;
+    float avg_chord;
 
     calibrate_timeout = millis() + calibrate_time;
     Serial.printf("Go calibrate, use %d ms \r\n", calibrate_time);
