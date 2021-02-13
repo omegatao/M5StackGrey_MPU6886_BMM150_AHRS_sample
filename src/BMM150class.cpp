@@ -81,31 +81,7 @@ void BMM150class::bmm150_offset_load()
         Serial.printf("bmm150 load offset failed.... \r\n");
     }
 }
-/*
-void BMM150class::setup()
-{
-    M5.begin(true, false, true, false);
-    Wire.begin(21, 22, 400000);
 
-    M5.Lcd.fillScreen(BLACK);
-    M5.Lcd.setTextColor(WHITE);
-
-    if (bmm150_initialization() != BMM150_OK)
-    {
-        // img.fillSprite(0);
-        // img.drawCentreString("BMM150 init failed", 160, 110, 4);
-        // img.pushSprite(0, 0);
-        M5.Lcd.setCursor(0, 10);
-        M5.Lcd.print("BMM150 init failed");
-        for (;;)
-        {
-            delay(100);
-        }
-    }
-
-    bmm150_offset_load();
-}
-*/
 void BMM150class::bmm150_calibrate(uint32_t calibrate_time)
 {
     uint32_t calibrate_timeout = 0;
@@ -152,15 +128,12 @@ void BMM150class::bmm150_calibrate(uint32_t calibrate_time)
     bmm150_offset_save();
 
     Serial.printf("\n calibrate finish ... \r\n");
-//    Serial.printf("mag_max.x: %.2f x_min: %.2f \t", mag_max.x, mag_min.x);
-//    Serial.printf("y_max: %.2f y_min: %.2f \t", mag_max.y, mag_min.y);
-//    Serial.printf("z_max: %.2f z_min: %.2f \r\n", mag_max.z, mag_min.z);
 }
 
 void BMM150class::Init(void)
 {
     Wire.begin(21, 22, 400000);
-    
+
     M5.Lcd.fillScreen(BLACK);
     M5.Lcd.setTextColor(WHITE);
 
@@ -173,7 +146,7 @@ void BMM150class::Init(void)
             delay(100);
         }
     }
-    
+
     bmm150_offset_load();
 
     Serial.printf("MID X : %.2f \t MID Y : %.2f \t MID Z : %.2f \n", mag_offset.x, mag_offset.y, mag_offset.z);

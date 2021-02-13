@@ -23,7 +23,6 @@ private:
     int8_t bmm150_initialization();
     void bmm150_offset_save();
     void bmm150_offset_load();
-    // void setup();
 
 public:
     BMM150class();
